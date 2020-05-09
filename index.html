@@ -16,9 +16,10 @@
             </li>
         </ul>
 
-        <input id="input" type="text">
+        <input type="text" v-model="newName">
 
-        <button id="button">Add name</button>
+        <!-- "v-on:click" the same like "@click" -->
+        <button @click="addName">Add name</button>
 
     </div>
 
@@ -33,17 +34,16 @@
             el: '#root',
 
             data: {
+                newName : '',
                 names: ['John', 'Mary', 'Jane', 'Jack']
             },
 
-            mounted() {
-                document.querySelector('#button').addEventListener('click', () => {
-                    let name = document.querySelector('#input');
+            methods: {
+                addName() {
+                    this.names.push(this.newName);
 
-                    app.names.push(name.value);
-
-                    name.value = '';
-                })
+                    this.newName = '';
+                }
             }
         });
     </script>
