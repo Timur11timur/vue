@@ -13,7 +13,7 @@
 <body>
 
     <div id="root">
-        <button :class="{ 'is-loading': isLoading }" @click="toggleClass">Toggle me</button>
+        <button :disabled="disabled" @click="disableButton">{{ buttonValue }}</button>
 
     </div>
 
@@ -24,12 +24,14 @@
             el: '#root',
 
             data: {
-                isLoading : false
+                disabled : false,
+                buttonValue: 'Enabled'
             },
 
             methods: {
-                toggleClass() {
-                    this.isLoading = true;
+                disableButton() {
+                    this.disabled = true;
+                    this.buttonValue = 'Disabled';
                 }
             }
         });
