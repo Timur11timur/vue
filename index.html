@@ -13,8 +13,17 @@
 <body>
 
     <div id="root">
-        <button :disabled="disabled" @click="disableButton">{{ buttonValue }}</button>
+        <h2>All tasks</h2>
 
+        <ul>
+            <li v-for="task in tasks" v-text="task.description"></li>
+        </ul>
+
+        <h2>Incomplete tasks</h2>
+
+        <ul>
+            <li v-for="task in incompleteTasks" v-text="task.description"></li>
+        </ul>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -24,14 +33,23 @@
             el: '#root',
 
             data: {
-                disabled : false,
-                buttonValue: 'Enabled'
+                tasks: [
+                    {description: 'Description 1', completed: true},
+                    {description: 'Description 2', completed: false},
+                    {description: 'Description 3', completed: false},
+                    {description: 'Description 4', completed: true},
+                    {description: 'Description 5', completed: false},
+                    {description: 'Description 6', completed: true},
+                ]
             },
 
-            methods: {
-                disableButton() {
-                    this.disabled = true;
-                    this.buttonValue = 'Disabled';
+            computed: {
+                incompleteTasks() {
+                    // return this.tasks.filter(task => ! task.completed); //below the same
+
+                    return this.tasks.filter(function(task) {
+                        return! task.completed;
+                    });
                 }
             }
         });
