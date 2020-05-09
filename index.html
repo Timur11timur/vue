@@ -6,43 +6,30 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        .is-loading { background-color: red; }
+    </style>
 </head>
 <body>
 
     <div id="root">
-        <ul>
-            <li v-for="name in names">
-                {{ name }}
-            </li>
-        </ul>
-
-        <input type="text" v-model="newName">
-
-        <!-- "v-on:click" the same like "@click" -->
-        <button @click="addName">Add name</button>
+        <button :class="{ 'is-loading': isLoading }" @click="toggleClass">Toggle me</button>
 
     </div>
 
-    <!-- development version, includes helpful console warnings -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
-    <!-- production version, optimized for size and speed -->
-    <!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
 
     <script>
         var app = new Vue({
             el: '#root',
 
             data: {
-                newName : '',
-                names: ['John', 'Mary', 'Jane', 'Jack']
+                isLoading : false
             },
 
             methods: {
-                addName() {
-                    this.names.push(this.newName);
-
-                    this.newName = '';
+                toggleClass() {
+                    this.isLoading = true;
                 }
             }
         });

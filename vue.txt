@@ -1,0 +1,7 @@
+Vue
+
+
+v-for="name in names" перебор массива names
+
+"@click" то же самое что "v-on:click" - click это event
+":title" то же самое что "v-bind:title" - title это атрибут тега
