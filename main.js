@@ -1,20 +1,21 @@
-Vue.component('task-list', {
-    template: '<div><task v-for="task in tasks">{{ task.task }}</task></div>',
+Vue.component('card', {
+    props: ['title', 'body'],
 
     data() {
-        return {
-            tasks: [
-                { task: 'Task 11', complete: true },
-                { task: 'Task 12', complete: false },
-                { task: 'Task 13', complete: true },
-                { task: 'Task 14', complete: false },
-            ]
-        };
-    }
-});
+      return {
+          isVisible: true
+      }
+    },
 
-Vue.component('task', {
-    template: '<li><slot></slot></li>'
+    template: '<div class="card mt-4" v-show="isVisible">\n' +
+        '            <div class="card-header">\n' +
+        '                {{ title }}\n' +
+        '                <button @click="isVisible = false">x</button>\n' +
+        '            </div>\n' +
+        '            <div class="card-body">\n' +
+        '                {{ body }}\n' +
+        '            </div>\n' +
+        '        </div>'
 });
 
 new Vue({
