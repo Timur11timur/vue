@@ -13,46 +13,14 @@
 <body>
 
     <div id="root">
-        <h2>All tasks</h2>
-
-        <ul>
-            <li v-for="task in tasks" v-text="task.description"></li>
-        </ul>
-
-        <h2>Incomplete tasks</h2>
-
-        <ul>
-            <li v-for="task in incompleteTasks" v-text="task.description"></li>
-        </ul>
+        <task>Task 1</task>
+        <task>Task 2</task>
+        <task>Task 3</task>
+        <task>Task 4</task>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
-    <script>
-        var app = new Vue({
-            el: '#root',
-
-            data: {
-                tasks: [
-                    {description: 'Description 1', completed: true},
-                    {description: 'Description 2', completed: false},
-                    {description: 'Description 3', completed: false},
-                    {description: 'Description 4', completed: true},
-                    {description: 'Description 5', completed: false},
-                    {description: 'Description 6', completed: true},
-                ]
-            },
-
-            computed: {
-                incompleteTasks() {
-                    // return this.tasks.filter(task => ! task.completed); //below the same
-
-                    return this.tasks.filter(function(task) {
-                        return! task.completed;
-                    });
-                }
-            }
-        });
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>
