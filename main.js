@@ -1,23 +1,22 @@
-Vue.component('card', {
-    props: ['title', 'body'],
-
-    data() {
-      return {
-          isVisible: true
-      }
-    },
-
-    template: '<div class="card mt-4" v-show="isVisible">\n' +
-        '            <div class="card-header">\n' +
-        '                {{ title }}\n' +
-        '                <button @click="isVisible = false">x</button>\n' +
-        '            </div>\n' +
-        '            <div class="card-body">\n' +
-        '                {{ body }}\n' +
+Vue.component('modal', {
+    template: '<div style="display: block;" class="modal fade show">\n' +
+        '            <div class="modal-dialog  modal-dialog-centered" role="document">\n' +
+        '                <div class="modal-content">\n' +
+        '                    <div class="modal-body">\n' +
+        '                        <button type="button" class="close" @click="$emit(\'close\')">\n' +
+        '                            <span aria-hidden="true">&times;</span>\n' +
+        '                        </button>\n' +
+        '                        <slot></slot>\n' +
+        '                    </div>\n' +
+        '                </div>\n' +
         '            </div>\n' +
         '        </div>'
 });
 
 new Vue({
-    el: '#root'
+    el: '#root',
+
+    data: {
+        showModal: false
+    }
 });
