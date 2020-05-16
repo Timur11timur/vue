@@ -8,7 +8,7 @@ Vue
     "@click" то же самое что "v-on:click" - click это event
     ":title" то же самое что "v-bind:title" - title это атрибут тега
 
-    :class="{ 'shown': check }""  - если check будет true то будет добавлен класс shown
+    :class="{ 'shown': check }"  - если check будет true то будет добавлен класс shown
 
     v-if="condition" - будет отображено если condition будет true
 
@@ -39,3 +39,7 @@ Vue
 
     в объявлении компонета (в теге) создаем собстенный ивент (атрибутом) @close и нужное нам действие
     а уже в компоненте вызываем ивент $emit('close')
+
+
+console.log(this.$children); - выведет все элементы потомки
+$event - ивент обьект
