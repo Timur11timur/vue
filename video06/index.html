@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .is-loading { background-color: red; }
+    </style>
+</head>
+<body>
+
+    <div id="root">
+        <h2>All tasks</h2>
+
+        <ul>
+            <li v-for="task in tasks" v-text="task.description"></li>
+        </ul>
+
+        <h2>Incomplete tasks</h2>
+
+        <ul>
+            <li v-for="task in incompleteTasks" v-text="task.description"></li>
+        </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        var app = new Vue({
+            el: '#root',
+
+            data: {
+                tasks: [
+                    {description: 'Description 1', completed: true},
+                    {description: 'Description 2', completed: false},
+                    {description: 'Description 3', completed: false},
+                    {description: 'Description 4', completed: true},
+                    {description: 'Description 5', completed: false},
+                    {description: 'Description 6', completed: true},
+                ]
+            },
+
+            computed: {
+                incompleteTasks() {
+                    // return this.tasks.filter(task => ! task.completed); //below the same
+
+                    return this.tasks.filter(function(task) {
+                        return! task.completed;
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>

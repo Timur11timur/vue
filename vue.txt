@@ -1,0 +1,41 @@
+Vue
+
+    v-model="message" - привязка вывода к переменной во vue
+    {{ message }} - просто вывод переменной из vue
+    v-for="name in names" перебор массива names
+    v-text="name или js код" вывод внуть тега переменную из vue name или результат кода
+
+    "@click" то же самое что "v-on:click" - click это event
+    ":title" то же самое что "v-bind:title" - title это атрибут тега
+
+    :class="{ 'shown': check }""  - если check будет true то будет добавлен класс shown
+
+    v-if="condition" - будет отображено если condition будет true
+
+    v-show="boolean" - будет видно (display: block) если boolean true или если false - (display: none)
+
+
+Части Vue
+
+    new Vue({});
+
+    el: - обэявление к какому блоку применить vue
+    data: {} - все переменные
+    methods: {} - все функции
+    mounted() {} - то что будет исполнено, просто js код например
+    computed: {} - вычесляемые перед выводом элементы
+
+Компонент
+
+    Vue.component('task', {
+        template: '<li><slot></slot></li>'
+    });
+
+    template: '' - то что заменит тег в html
+    <slot></slot> - внутри template - место для даннвх с html
+    props: ['title', 'body'] - передача данных из html во vue. 'title' и 'body' атрибуты тега в html
+    data() { return {};} - все переменные в компоненте
+    methods: {} - все функции
+
+    в объявлении компонета (в теге) создаем собстенный ивент (атрибутом) @close и нужное нам действие
+    а уже в компоненте вызываем ивент $emit('close')
