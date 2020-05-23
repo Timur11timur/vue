@@ -33,6 +33,12 @@ Vue
 
     template: '' - то что заменит тег в html
     <slot></slot> - внутри template - место для даннвх с html
+
+    <template slot="header">В HTML</template> - в HTML
+    <slot name="header"></slot> - в компоненте внутри template
+
+    <slot>Default text</slot> - если в компоненте прописать дефолнтный текс а в HTML ничего - то выведится дефолтный
+
     props: ['title', 'body'] - передача данных из html во vue. 'title' и 'body' атрибуты тега в html
     data() { return {};} - все переменные в компоненте
     methods: {} - все функции
