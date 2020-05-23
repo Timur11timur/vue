@@ -49,6 +49,8 @@ Vue
     this.$emit('toOthers') - произвести ивент
     this.$on('fromOthers', function() {}) - отловить ивент
 
+    inline-template - пишем атрибутов в HTML когда нет template в компоненте. В HTML должен быть один элемент (возможно иметь несколько в нем).
+
 
 console.log(this.$children); - выведет все элементы потомки
 $event - ивент обьект
