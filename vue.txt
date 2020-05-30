@@ -54,3 +54,10 @@ Vue
 
 console.log(this.$children); - выведет все элементы потомки
 $event - ивент обьект
+
+
+npm install -g vue-cli
+vue init webpack-simple hello-vue
+cd hello-vue
+npm install
+npm run dev
