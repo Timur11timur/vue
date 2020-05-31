@@ -15,6 +15,14 @@ Vue
     v-show="boolean" - будет видно (display: block) если boolean true или если false - (display: none)
 
 
+    @submit="onSubmit" - пишется у формы и вызывается onSubimt() при отправке формы
+
+    @click.once - будет только единеждое нажатие
+    @submit.prevent - предотвращение действия по умолчанию
+
+    :disabled="true" - отключение например кнопки
+
+
 Части Vue
 
     new Vue({});
